@@ -6,16 +6,23 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 from sklearn.datasets import make_classification
 from scipy import stats
+import os
+import urllib.request
+import matplotlib.font_manager as fm
 
-# 한글 폰트 설정
+# 🔥 Streamlit Cloud에서도 한글 깨지지 않게 폰트 등록
+font_path = '/tmp/NanumGothic.ttf'
+if not os.path.exists(font_path):
+    url = 'https://github.com/naver/nanumfont/blob/master/TTF/NanumGothic.ttf?raw=true'
+    urllib.request.urlretrieve(url, font_path)
+fm.fontManager.addfont(font_path)
+
+# 🔥 한글 폰트 설정 (등록된 NanumGothic 사용)
 plt.rcParams['font.family'] = 'NanumGothic'
 plt.rcParams['axes.unicode_minus'] = False
 
 # 페이지 설정
 st.set_page_config(page_title="통계", page_icon=":sparkles:", layout="wide")
-
-st.title("✨ 통계")
-st.write("통계 개념과 그래프 정리!")
 
 # 탭 메뉴
 tabs = st.tabs(["평균과 중앙값", "정규분포", "상관관계", "회귀분석", "혼동행렬 (Confusion Matrix)"])
