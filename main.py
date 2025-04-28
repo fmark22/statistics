@@ -11,7 +11,7 @@ import urllib.request
 import matplotlib.font_manager as fm
 
 # 🔥 로컬 폰트 파일 경로로 설정
-font_path = './fonts/NanumGothic.ttf'  # 여기로 바꿔줘
+font_path = './fonts/NanumGothic-Regular.ttf'  # 여기로 바꿔줘
 fm.fontManager.addfont(font_path)
 
 # 폰트 설정
