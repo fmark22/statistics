@@ -10,13 +10,11 @@ import os
 import urllib.request
 import matplotlib.font_manager as fm
 
-# 🔥 Streamlit Cloud에서도 한글 깨지지 않게 폰트 등록
-font_path = '/tmp/NanumGothic.ttf'
-if not os.path.exists(font_path):
-    url = 'https://raw.githubusercontent.com/naver/nanumfont/master/TTF/NanumGothic.ttf'  # ✅ 수정된 부분
-    urllib.request.urlretrieve(url, font_path)
+# 🔥 로컬 폰트 파일 경로로 설정
+font_path = './fonts/NanumGothic.ttf'  # 여기로 바꿔줘
+fm.fontManager.addfont(font_path)
 
-# 🔥 한글 폰트 설정 (등록된 NanumGothic 사용)
+# 폰트 설정
 plt.rcParams['font.family'] = 'NanumGothic'
 plt.rcParams['axes.unicode_minus'] = False
 
